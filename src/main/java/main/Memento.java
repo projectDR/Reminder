@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by nomen on 21.07.17.
  */
-public class Memento {
+public class Memento implements Comparable<Memento>{
 
     private int id;
     private String message;
@@ -30,5 +30,11 @@ public class Memento {
 
     public Calendar getAlarm() {
         return alarm;
+    }
+
+    public int compareTo(Memento m) {
+        if(m.message == message && m.alarm.compareTo(alarm) != 0)
+            return 1;
+        return 0;
     }
 }
